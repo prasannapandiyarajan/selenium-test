@@ -1,0 +1,20 @@
+username,password,conformpassword,pannumber,otp,scrip_name,Watchlist_tab,watchlist_bottom_tab,Testing_Area,Page,order_type,validity,expected,actual,status
+,,,,123456,,,,,,,,pass,error shown,fail
+,,,,,,,,funds_tab,Funds,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,add_withdrawal_fund,Funds,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,funds_available,Funds,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,collateral_available,Funds,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,explore_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,products_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,mutual_funds_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,ipo_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,global_investing_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,tax_filling_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,nps_online_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,grobox_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,smallcase_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,tradebox_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,instaoptions_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,more_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,form_format_tab,Explore,,,pass,XPath not found or invalid xpath,fail
+,,,,,,,,offer_to_tab,Explore,,,pass,XPath not found or invalid xpath,fail
