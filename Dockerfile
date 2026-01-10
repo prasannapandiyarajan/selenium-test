@@ -12,4 +12,4 @@ COPY . .
 RUN pip3 install selenium pytest pytest-html
 
 # Default command to run tests
-CMD ["pytest", "test_e2eTestFramework.py", "--browser_name", "chrome", "--html=reports/report.html", "--self-contained-html"]
+CMD ["pytest", "pythonSel/test_e2eTestFramework.py", "--browser_name", "chrome", "--html=reports/report.html", "--self-contained-html"]
