@@ -171,7 +171,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "selenium-test-image"
-        CONTAINER_NAME = "selenium-test-container"
+        CONTAINER_NAME = "selenium-test-container-${BUILD_NUMBER}"
         REPORT_BASE_PATH = "/opt/selenium-test-reports"
     }
 
