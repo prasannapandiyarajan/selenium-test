@@ -203,7 +203,7 @@ pipeline {
                         set -e
 
                         echo "Building Docker Image"
-                        docker build -y $IMAGE_NAME .
+                        docker build -t $IMAGE_NAME .
 
                         echo "Image created successfully"
                         '''
