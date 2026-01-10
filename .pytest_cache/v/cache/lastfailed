@@ -53,9 +53,6 @@
   "pythonSel/test_e2eTestFramework.py::test_order_window": true,
   "main.py::test_watchlist_scenarios[ABB-EQ-pass]": true,
   "main.py::test_watchlist_scenarios[ABB-pass]": true,
-  "pythonSel/test_e2eTestFramework.py::test_watchlist_scenarios[SENSEX-pass]": true,
-  "pythonSel/test_e2eTestFramework.py::test_explore": true,
-  "pythonSel/test_e2eTestFramework.py::test_login_scenarios[11882058-Admin@11-pass]": true,
-  "pythonSel/test_e2eTestFramework.py::test_login_otp[123456-pass]": true,
-  "pythonSel/test_e2eTestFramework.py::test_watchlist_scenarios[ACC-EQ-pass]": true
+  "pythonSel/test_e2eTestFramework.py::test_watchlist_scenarios[ACC-EQ-pass]": true,
+  "pythonSel/test_e2eTestFramework.py::test_login_scenarios[11882058-Admin@11-pass]": true
 }

@@ -18,9 +18,16 @@ class otpPage(BrowserUtils):
 
     def enter_input(self, otp: str) -> bool:
         try:
+            # 👉 1. Click Get Mobile OTP
+            btn = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Get Mobile OTP"))
+            )
+            self.driver.execute_script("arguments[0].click();", btn)
+            time.sleep(1)
+
             # Wait for all OTP input fields
             otp_inputs = WebDriverWait(self.driver, 15).until(
-                EC.presence_of_all_elements_located(self.otp_inputs_locator)
+                EC.visibility_of_all_elements_located(self.otp_inputs_locator)
             )
 
             print(f"✅ OTP Inputs found: {len(otp_inputs)}")
