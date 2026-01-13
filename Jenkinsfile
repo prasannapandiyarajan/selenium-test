@@ -249,7 +249,7 @@ pipeline {
         always {
             script{
                 def finalPath = "${REPORT_BASE_PATH}/${BUILD_NUMBER}"
-                def finalPathForEmail = "${finalpath}/mail_report.html"
+                def finalPathForEmail = "${finalPath}/mail_report.html"
 
                 sh """
                 mkdir -p ${finalPath}
