@@ -173,6 +173,8 @@ pipeline {
         IMAGE_NAME = "selenium-test-image"
         CONTAINER_NAME = "selenium-test-container-${BUILD_NUMBER}"
         REPORT_BASE_PATH = "/opt/selenium-test-reports"
+        finalPath = "${REPORT_BASE_PATH}/${BUILD_NUMBER}"
+        finalPathForEmail = "${finalPath}/mail_report.html"
     }
 
     stages {
@@ -248,9 +250,6 @@ pipeline {
     post {
         always {
             script{
-                def finalPath = "${REPORT_BASE_PATH}/${BUILD_NUMBER}"
-                def finalPathForEmail = "${finalPath}/mail_report.html"
-
                 sh """
                 mkdir -p ${finalPath}
                 cp -r reports/* ${finalPath}/ || true
