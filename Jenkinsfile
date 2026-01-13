@@ -247,10 +247,10 @@ pipeline {
         stage('Building GmailHTML file'){
             steps{
                 script{
-                    
+
                     sh '''
                     cd pythonSel
-                    python generate_mail_html.py
+                    python3 generate_mail_html.py
                     '''
                 }
             }
@@ -262,6 +262,7 @@ pipeline {
             script{
                 def ts = sh(script: "date '+%Y-%m-%d_%H-%M-%S'", returnStdout: true).trim()
                 def finalPath = "${REPORT_BASE_PATH}/${ts}"
+                def finalPathForEmail = "${finalpath}/mail_report.html"
 
                 sh """
                 mkdir -p ${finalPath}
@@ -284,7 +285,7 @@ pipeline {
             script{
                 echo "Sending Automation Test Report Mail"
 
-            def mailBody = readFile(finalPath)
+            def mailBody = readFile(finalPathForEmail)
 
             emailext(
                 subject: "✅ Automation Test Report - SUCCESS",
