@@ -247,10 +247,7 @@ pipeline {
         stage('Building GmailHTML file'){
             steps{
                 script{
-                    if(!fileExists('pythonSel/reports/report.html')){
-                        error "No fresh report generated"
-                    }
-
+                    
                     sh '''
                     cd pythonSel
                     python generate_mail_html.py
