@@ -243,6 +243,18 @@ pipeline {
                 }
             }
         }
+
+        stage('Building GmailHTML file'){
+            steps{
+                script{
+                    if(!fileExists('/pythonSel/reports/report.html')){
+                        error "No fresh report generated"
+                    }
+
+                    sh 'python generate_mail_html.py'
+                }
+            }
+        }
     }
 
     post {
@@ -269,10 +281,33 @@ pipeline {
 
         success {
             echo "🎉 Pipeline completed successfully"
+            script{
+                echo "Sending Automation Test Report Mail"
+
+            def mailBody = readFile('pythonSel/reports/mail_report.html')
+
+            emailext(
+                subject: "✅ Automation Test Report - SUCCESS",
+                body: mailBody,
+                mimeType: 'text/html',
+                to: "prasanna@codifi.in"
+            )
+            }
         }
 
         failure {
             echo "🚨 Pipeline failed – reports & screenshots saved"
+
+            script{
+                emailext(
+                subject: "🚨 Automation Test FAILED",
+                body: """
+                Tests failed or report generation failed.
+                Please check Jenkins console and reports.
+                """,
+                to: "prasanna@codifi.in"
+                )
+            }
         }
     }
 }
