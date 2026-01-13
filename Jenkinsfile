@@ -173,8 +173,8 @@ pipeline {
         IMAGE_NAME = "selenium-test-image"
         CONTAINER_NAME = "selenium-test-container-${BUILD_NUMBER}"
         REPORT_BASE_PATH = "/opt/selenium-test-reports"
-        finalPath = "${REPORT_BASE_PATH}/${BUILD_NUMBER}"
-        finalPathForEmail = "${finalPath}/mail_report.html"
+        FINAL_PATH = "${REPORT_BASE_PATH}/${BUILD_NUMBER}"
+        FINAL_PATH_FOR_EMAIL = "${finalPath}/mail_report.html"
     }
 
     stages {
@@ -251,8 +251,8 @@ pipeline {
         always {
             script{
                 sh """
-                mkdir -p ${finalPath}
-                cp -r reports/* ${finalPath}/ || true
+                mkdir -p ${env.FINAL_PATH}
+                cp -r reports/* ${env.FINAL_PATH}/ || true
                 """
 
                 archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
@@ -271,7 +271,7 @@ pipeline {
             script{
                 echo "Sending Automation Test Report Mail"
 
-            def mailBody = readFile(finalPathForEmail)
+            def mailBody = readFile(env.FINAL_PATH_FOR_EMAIL)
 
             emailext(
                 subject: "✅ Automation Test Report - SUCCESS",
