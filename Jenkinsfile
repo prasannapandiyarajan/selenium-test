@@ -243,25 +243,12 @@ pipeline {
                 }
             }
         }
-
-        stage('Building GmailHTML file'){
-            steps{
-                script{
-
-                    sh '''
-                    cd pythonSel
-                    python3 generate_mail_html.py
-                    '''
-                }
-            }
-        }
     }
 
     post {
         always {
             script{
-                def ts = sh(script: "date '+%Y-%m-%d_%H-%M-%S'", returnStdout: true).trim()
-                def finalPath = "${REPORT_BASE_PATH}/${ts}"
+                def finalPath = "${REPORT_BASE_PATH}/${BUILD_NUMBER}"
                 def finalPathForEmail = "${finalpath}/mail_report.html"
 
                 sh """
@@ -272,7 +259,7 @@ pipeline {
                 archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
             }
 
-            echo "Files Moved to local succefully"
+            echo "Files Moved to local successfully"
 
             sh '''
             docker rm -f $CONTAINER_NAME || true

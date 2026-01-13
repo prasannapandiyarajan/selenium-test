@@ -9,7 +9,7 @@ WORKDIR /home/seluser/project
 COPY . .
 
 # Install Python deps
-RUN pip3 install selenium pytest pytest-html
+RUN pip3 install selenium pytest pytest-html beautifulsoup4
 
 # Default command to run tests
-CMD ["pytest", "pythonSel/test_e2eTestFramework.py", "--browser_name", "chrome", "--html=reports/report.html", "--self-contained-html"]
+CMD ["bash", "run_tests.sh"]
