@@ -287,7 +287,7 @@ pipeline {
             script{
                 echo "Sending Automation Test Report Mail"
 
-            def mailBody = readFile('pythonSel/reports/mail_report.html')
+            def mailBody = readFile(finalPath)
 
             emailext(
                 subject: "✅ Automation Test Report - SUCCESS",
