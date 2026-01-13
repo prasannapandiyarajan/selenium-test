@@ -277,7 +277,7 @@ pipeline {
                 subject: "✅ Automation Test Report - SUCCESS",
                 body: mailBody,
                 mimeType: 'text/html',
-                to: "prasanna@codifi.in"
+                to: "prasannap0218@gmail.com"
             )
             }
         }
@@ -292,7 +292,7 @@ pipeline {
                 Tests failed or report generation failed.
                 Please check Jenkins console and reports.
                 """,
-                to: "prasanna@codifi.in"
+                to: "prasannap0218@gmail.com"
                 )
             }
         }
